@@ -14,7 +14,7 @@ from convert_relative_paths import REL_INDEX
 
 TEMPLATE = join(__dirname, 'README_template.md')
 README   = join(__dirname, '..', 'README.md')
-DATA_PREFIX = 'https://github.com/betafcc/CGM-Rio_Tabelas_excel/raw/master/data'
+DATA_PREFIX = 'https://github.com/betafcc/CGM-Rio_Tabelas_excel/raw/master/data/'
 
 
 def main():
