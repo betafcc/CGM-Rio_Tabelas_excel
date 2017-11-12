@@ -9,6 +9,7 @@ PY           := $(ENV_BIN)/python
 PIP          := $(ENV_BIN)/pip
 
 SRC_DIR  := lib
+SCRIPTS_DIR := scripts
 
 
 init: $(ENV_ACTIVATE)
@@ -26,7 +27,14 @@ else
 endif
 
 
-.PHONY: clean clean_hard lint typecheck test validate watch
+.PHONY: clean clean_hard lint typecheck test validate watch pre_commit
+
+
+pre_commit:
+	$(PY) -m $(SRC_DIR) && \
+	$(PY) $(SCRIPTS_DIR)/convert_relative_paths.py && \
+	$(PY) $(SCRIPTS_DIR)/make_readme.py
+
 
 clean:
 	rm -rf build *.egg .mypy_cache cache
